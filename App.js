@@ -9,7 +9,7 @@ return (
   <NavigationContainer>
     <PokeStack.Navigator screenOptions={{
       headerStyle: {
-        backgroundColor: '#1a202c',
+        backgroundColor: 'gray',
       },
       headerTintColor: '#e2e8f0',
       headerTitleStyle: {
@@ -18,7 +18,7 @@ return (
       }
     }}>
       <PokeStack.Screen component={AllPokemon} name={"AllPokemon"} options={{title: "Poké Gallery"}}/>
-      <PokeStack.Screen component={PokeDetail} name={"PokeDetail"} options={({ route }) => ({ title: route.params.name })} />
+      <PokeStack.Screen component={PokeDetail} name={"PokeDetail"} options={({ route }) => ({ title: route.params.name, headerTitleAlign: 'center' })} />
     </PokeStack.Navigator>
   </NavigationContainer>
 )

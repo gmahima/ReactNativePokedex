@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Text, View, ScrollView, Image } from 'react-native';
 import useSWR from 'swr'
 import sprites from './assets/sprites/index.js'
@@ -41,6 +41,35 @@ const Attacks = ({data, error}) => {
 export default function PokeDetail({route, navigation}) {
     const url = route.params.url
     const { data, error } = useSWR(url, fetcher)
+ 
+
+    React.useLayoutEffect(() => {
+        let color = 'white'
+        if(data) {
+            switch(data.types[0].type.name) {
+                case 'grass': color = 'teal'; break;
+                case 'fire': color = 'red'; break;
+                case 'water': color = 'blue'; break;
+                case 'bug': color = 'green'; break;
+                case 'poison': color = 'purple'; break;
+                case 'flying': color = 'cyan'; break;
+                case 'electric': color = 'orange'; break;
+                case 'fairy': color = 'pink'; break;
+                case 'ground': color = 'brown'; break;
+                case 'psychic' : color = 'lilac'; break; 
+                case 'fighting' : color = 'papayawhip'; break;
+                case 'rock' : color = 'gray'; break;
+                case 'ghost': color = 'gray'; break;
+                case 'dragon': color = 'red'; break;        
+                default: color = 'white'; break;
+            }
+        }
+        navigation.setOptions({
+            headerStyle: {
+                backgroundColor: color,
+              }
+        });
+    }, [data]);
 
     return( 
         <DetailTabs.Navigator >
