@@ -18,12 +18,13 @@ border-radius: 10px;
 width: 300px;
 padding: 10px 0px;
 display: flex;
-align-items: center;
+
 `
 const SImage = styled.Image `
 
 width: 150px;
 height: 150px;
+align-self: center;
 `
 const Heading = styled.View `
 margin: 10px 10px;
@@ -52,6 +53,24 @@ justify-content: space-between;
 background: #edf2f7;
 padding: 1px 8px;
 margin: 2px 0;
+`
+const Title = styled.Text `
+font-size: 18px;
+text-align: center;
+font-weight: bold;
+`
+const SCard = styled(Card) `
+margin: 45px 0;
+`
+const AttackView = styled(View)`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+padding: 10px 15px;
+`
+const AttackText = styled.Text`
+font-size: 12px;
+margin: 2px 5px;
 `
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 const DetailTabs = createBottomTabNavigator()
@@ -95,24 +114,22 @@ const PokeDetailCard = ({data, error}) => {
         </SView>
     )
 }
-const Title = styled.Text `
-font-size: 18px;
-text-align: center;
-font-weight: bold;
-`
-const AttackView = styled.View``
+
 const Attacks = ({data, error}) => {
      if (error) return <View><Text>failed to load</Text></View>
     if (!data) return <View><Text>loading...</Text></View>
     const id = data.id
-    return( 
-        <SView>
-            <Card>
-            <Title>ATTACKS</Title>
-            <AttackView>{data.moves.map(m => <Text key={m.move.name}>{m.move.name}</Text>)}</AttackView>
-            </Card>
-            
-        </SView>
+    return(
+        <ScrollView>
+            <SView>
+                <SCard>
+                <Title>ATTACKS</Title>
+                <AttackView>{data.moves.map(m => <AttackText key={m.move.name}>{m.move.name}</AttackText>)}</AttackView>
+                </SCard>
+                
+            </SView>
+        </ScrollView> 
+        
     )
 }
 
