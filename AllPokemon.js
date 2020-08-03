@@ -13,10 +13,11 @@ justify-content: center;
 `
 const SView = styled.View `
 background: #edf2f7;
+flex: 1;
 `
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=10'
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
 export default function AllPokemon({navigation}) {
   const { data, error } = useSWR(url, fetcher)
 

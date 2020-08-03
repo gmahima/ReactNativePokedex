@@ -71,11 +71,11 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 border-radius: 20px;
-padding: 20px 0;
+padding: 20px 15px;
 `
 const AttackText = styled.Text`
-font-size: 16px;
-padding: 4px 8px;
+font-size: 14px;
+padding: 6px 4px;
 `
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 const DetailTabs = createBottomTabNavigator()

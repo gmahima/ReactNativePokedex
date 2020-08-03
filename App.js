@@ -17,7 +17,7 @@ return (
         
       }
     }}>
-      <PokeStack.Screen component={AllPokemon} name={"AllPokemon"} options={{title: "Poké Gallery"}}/>
+      <PokeStack.Screen component={AllPokemon} name={"AllPokemon"} options={{title: "PokéDex"}}/>
       <PokeStack.Screen component={PokeDetail} name={"PokeDetail"} options={({ route }) => ({ title: route.params.name, headerTitleAlign: 'center' })} />
     </PokeStack.Navigator>
   </NavigationContainer>
