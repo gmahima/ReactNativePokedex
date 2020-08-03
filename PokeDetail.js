@@ -58,19 +58,24 @@ const Title = styled.Text `
 font-size: 18px;
 text-align: center;
 font-weight: bold;
+padding: 0 0 15px 0 ;
 `
 const SCard = styled(Card) `
 margin: 45px 0;
+padding: 20px 10px;
+background: white;
 `
 const AttackView = styled(View)`
+background: white;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-padding: 10px 15px;
+border-radius: 20px;
+padding: 20px 0;
 `
 const AttackText = styled.Text`
-font-size: 12px;
-margin: 2px 5px;
+font-size: 16px;
+padding: 4px 8px;
 `
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 const DetailTabs = createBottomTabNavigator()
@@ -120,15 +125,17 @@ const Attacks = ({data, error}) => {
     if (!data) return <View><Text>loading...</Text></View>
     const id = data.id
     return(
-        <ScrollView>
+        
             <SView>
                 <SCard>
                 <Title>ATTACKS</Title>
+                <ScrollView>
                 <AttackView>{data.moves.map(m => <AttackText key={m.move.name}>{m.move.name}</AttackText>)}</AttackView>
+                </ScrollView> 
                 </SCard>
                 
             </SView>
-        </ScrollView> 
+        
         
     )
 }
