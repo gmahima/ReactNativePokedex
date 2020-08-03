@@ -7,7 +7,16 @@ export default function App() {
 const PokeStack = createStackNavigator()
 return (
   <NavigationContainer>
-    <PokeStack.Navigator>
+    <PokeStack.Navigator screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1a202c',
+      },
+      headerTintColor: '#e2e8f0',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        
+      }
+    }}>
       <PokeStack.Screen component={AllPokemon} name={"AllPokemon"} options={{title: "Poké Gallery"}}/>
       <PokeStack.Screen component={PokeDetail} name={"PokeDetail"} options={({ route }) => ({ title: route.params.name })} />
     </PokeStack.Navigator>
