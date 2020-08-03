@@ -72,7 +72,13 @@ export default function PokeDetail({route, navigation}) {
     }, [data]);
 
     return( 
-        <DetailTabs.Navigator >
+        <DetailTabs.Navigator tabBarOptions={{
+            activeBackgroundColor: 'black',
+            inactiveBackgroundColor: 'gray',
+            activeTintColor: 'white',
+            inactiveTintColor: 'white',
+            labelPosition: 'beside-icon'
+          }}>
             <DetailTabs.Screen name="Details">
                 {() => <PokeDetailCard data={data} error={error} />}
             </DetailTabs.Screen>
