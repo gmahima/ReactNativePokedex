@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "pokedex",
+    "descirption": "A Pokédex app made with react-hooks, react-navigation and styled-components fetching data from an external api: pokeapi.co",
     "slug": "pokedex",
     "version": "1.0.0",
     "orientation": "portrait",
